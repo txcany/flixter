@@ -17,10 +17,6 @@
   color: #5659E3;
 }
 
-body {
-  background: image_url('ripples.png');
-}
-
 .hero {
   background: image_url('hero.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -55,4 +51,15 @@ h1, h2, h3, h4, h5, h6, .navbar {
 
 .btn {
   border-radius: 0;
+}
+
+.feature {
+  width: 100%; 
+  padding-left: 5%;
+  padding-right: 5%
+}
+
+body {
+  background: image_url('skin_side_up.png');
+  font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
