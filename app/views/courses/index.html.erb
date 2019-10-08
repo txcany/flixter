@@ -8,13 +8,13 @@
   <% @courses.each do |course| %>
     <h2 class="text-center">
       <%= link_to course.title, course_path(course) %>
-
+  <img src="<%= course.image %>" class="img img-fluid rounded " style="max-width: 400px; max-height:  300px;">
       </h2>
       <br />
         <div class="row">
         <div class="col-sm-8 col-12">
           <%= course.description %>
-           <%= image_tag course_path(course), class: 'img-fluid' %>
+          
             </div>
             <div class="col-sm-4 col-12 text-center">
          <%= link_to 'More Details...', course_path(course), class: 'btn btn-primary btn-large' %>
