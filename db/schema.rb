@@ -31,7 +31,9 @@ ActiveRecord::Schema.define(version: 2019_10_08_174358) do
     t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    # t.integer "row_order"
     t.index ["course_id"], name: "index_enrollments_on_course_id"
+    # t.index ["row_order"], name: "index_section_on_row_order"
     t.index ["user_id", "course_id"], name: "index_enrollments_on_user_id_and_course_id"
   end
 
