@@ -1,17 +1,19 @@
 class Instructor::CoursesController < ApplicationController
   before_action :authenticate_user!
   before_action :require_authorized_for_current_course, only: [:show]
-  
+  skip_before_action :verify_authenticity_token
+
   def new
-     @course = Course.new
+    @course = Course.new
   end
 
   def create
     @course = current_user.courses.create(course_params)
+
     if @course.valid?
       redirect_to instructor_course_path(@course)
     else
-      render :new, status: :unprocessable_entity  
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -19,10 +21,10 @@ class Instructor::CoursesController < ApplicationController
     @section = Section.new
     @lesson = Lesson.new
   end
-  
+
   private
 
-    def require_authorized_for_current_course
+  def require_authorized_for_current_course
     if current_course.user != current_user
       render plain: "Unauthorized", status: :unauthorized
     end
@@ -33,8 +35,8 @@ class Instructor::CoursesController < ApplicationController
     @current_course ||= Course.find(params[:id])
   end
 
-
   def course_params
     params.require(:course).permit(:title, :description, :cost, :image)
   end
+
 end
