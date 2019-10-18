@@ -6,7 +6,6 @@ class Instructor::LessonsController < ApplicationController
 
   def create
     @lesson = current_section.lessons.create(lesson_params)
-    if @lesson.valid?
     redirect_to instructor_course_path(current_section.course)
   end
 
